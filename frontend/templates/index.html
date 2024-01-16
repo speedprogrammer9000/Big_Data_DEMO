@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FastAPI Frontend</title>
+</head>
+<body>
+
+    <form id="dataForm">
+        <label for="name">Daten eingeben:</label>
+        <input type="text" id="name" name="name" required>
+        <button type="button" onclick="createData()">Daten erstellen</button>
+    </form>
+
+    <button type="button" onClick="fetchAndDisplayData()">Alle Daten anzeigen</button>
+    <div id="output"></div>
+
+    <script>
+        async function createData() {
+            const nameInput = document.getElementById("name");
+            const nameValue = nameInput.value;
+
+            const data = { name: nameValue };
+
+            try {
+                const response = await fetch("http://localhost:8000/item", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(data),
+                });
+
+                if (response.ok) {
+                    console.log("Daten erfolgreich erstellt!");
+                    // Nach dem Erstellen der Daten, hole und zeige die Daten an
+                } else {
+                    console.error("Fehler beim Erstellen der Daten.");
+                }
+            } catch (error) {
+                console.error("Netzwerkfehler:", error);
+            }
+        }
+
+        async function fetchAndDisplayData() {
+            try {
+                const response = await fetch("http://localhost:8000/items/");
+                const data = await response.json();
+
+                // Zeige die abgerufenen Daten an
+                const outputDiv = document.getElementById("output");
+                outputDiv.innerHTML = `<h2>Abgerufene Daten:</h2><pre>${JSON.stringify(data, null, 2)}</pre>`;
+            } catch (error) {
+                console.error("Fehler beim Abrufen der Daten:", error);
+            }
+        }
+    </script>
+
+</body>
+</html>

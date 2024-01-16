@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  api:
+    build:
+      context: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - keydb
+
+
+  keydb:
+    image: eqalpha/keydb
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./keydb.conf:/etc/keydb/keydb.conf
+      - ./logs:/etc/keydb
+
+
+
+    entrypoint: ["sh", "-c", "chmod 777 /etc/keydb && exec keydb-server /etc/keydb/keydb.conf"]
