@@ -1,0 +1,3 @@
+ keydb-cli set item_id:7 '{"item_id":"7","name":"lasse"}'
+# keydb-cli get item_id:7
+danach nurnoch mit der api weil gründe
