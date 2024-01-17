@@ -11,7 +11,7 @@
 <p>Starten Sie die Services und testen Sie die KeyDB-Instanz, indem Sie per CLI Daten einfügen und abrufen.</p>
 
 <h3>Aufgabe 2:</h3>
-<p>Starten Sie die Services neu. Nutzen Sie dazu die Befehle <code>docker-compose up --build</code>, um stets die aktuellste Version zu starten. Warum werden die Daten hierbei verworfen?</p>
+<p>Starten Sie die Services neu. Nutzen Sie dazu die Befehle <code>docker-compose up --build</code>, um stets die aktuellste Version zu starten. Stellen Sie sicher, dass ihre Daten korrekt persistiert werden.</p>
 
 <p><strong>Hinweis:</strong> Zurück zum Vortrag, bis noch eine Aufgabe kommt.</p>
 
