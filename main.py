@@ -25,7 +25,6 @@ async def create_item(item: Item):
     item_id = rdb.incr("item_id_counter")
     key = f"item:{item_id}"
     rdb.hset(key, "name", item.name)
-    rdb.bgsave()
     return {"item_id": item_id, "name": item.name}
 
 @app.get("/items/{item_id}")
