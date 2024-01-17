@@ -15,18 +15,7 @@ services:
     ports:
       - "6379:6379"
     volumes:
-      - ./keydb.conf:/etc/keydb/keydb.conf
       - ./logs:/etc/keydb
+      - ./keydb.conf:/etc/keydb/keydb.conf
     entrypoint: ["sh", "-c", "chmod 777 /etc/keydb && exec keydb-server /etc/keydb/keydb.conf"]
 
-  replica:
-    image: eqalpha/keydb
-    ports:
-      - "6380:6380"
-    depends_on:
-      - keydb
-    volumes:
-    -  ./replica/keydb.conf:/etc/keydb/keydb.conf
-    -  ./replica:/etc/keydb
-
-    entrypoint: ["sh", "-c", "chmod 777 /etc/keydb && exec keydb-server /etc/keydb/keydb.conf"]
