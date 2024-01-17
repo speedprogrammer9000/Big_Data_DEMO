@@ -1,40 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Projekt Readme</title>
-<style>
-body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            margin: 20px;
-        }
-
-h1 {
-            color: #333;
-        }
-h2 {
-            color: #666;
-        }
-p {
-            color: #444;
-        }
-
-div {
-            background-color: #f0f0f0;
-            padding: 10px;
-            margin: 10px 0;
-        }
-
-code {
-            font-family: 'Courier New', monospace;
-            background-color: #f8f8f8;
-            padding: 2px 4px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-}
-</style>
 </head>
 <body>
 
